@@ -51,7 +51,7 @@ class vscoDownloader(object):
             print(final_url, 'final')
             print(converted, 'converted')
 
-            filename = 'mandyAdenan{}'.format(count)
+            filename = 'name{}'.format(count)
             filename = filename + '.jpg'
             self.download_final_img(converted, filename)
 
@@ -88,7 +88,7 @@ class vscoDownloader(object):
         for elm in image_indexes:
             image_urls.append(resp_text[elm: elm + 55]) #CHANGE THIS this end portion needs to be CUSTOMIZED
         return image_urls
-        #57 for georgia, 55 for ayemandy
+        #57 for g, 55 for aym
 
 
 
@@ -132,19 +132,6 @@ class vscoDownloader(object):
                 elif url[i] == '/':
                     first = True
 
-                    #if it has vsco_ --> #https://image.vsco.co/1/54dff5b132d922277393/5980edb047eb6a1f368225da/vsco_080117.jpg
-                    #if it has other or "vsco" -->
-
-                    #standard -->vsco
-                    #im.vsco.co/aws-us-west-2/4d4920/2277393/5b612c83537bb14847e89c61/vsco5b612c85a875c.jpg
-                    #https://image-aws-us-west-2.vsco.co/4d4920/2277393/5b612c83537bb14847e89c61/vsco5b612c85a875c.jpg
-
-                    ##first exception to rule --> vsco_
-                    #im.vsco.co/1/54dff5b132d922277393/5980edb047eb6a1f368225da/vsco_080117.jpg
-                    #https://image.vsco.co/1/54dff5b132d922277393/5980edb047eb6a1f368225da/vsco_080117.jpg
-
-                    #im.vsco.co/aws-us-west-2/4d4920/2277393/59de7644abbf221c66f93d10/vsco59de7647c6aa6.jpg
-                    #https://image-aws-us-west-2.vsco.co/4d4920/2277393/59de7644abbf221c66f93d10/vsco59de7647c6aa6.jpg
             prefix = 'https://image-aws-us-west-2.vsco.co'
             url = prefix + url[final_index:]
 
@@ -153,11 +140,7 @@ class vscoDownloader(object):
 
         else:
             print(url, "what is happening")
-            #im.vsco.co/aws-us-west-2/4d4920/2277393/59de763dabbf221c66f93d0f/vsco59de76404d41e.jpg
-            #https://image-aws-us-west-2.vsco.co/4d4920/2277393/59de763dabbf221c66f93d0f/vsco59de76404d41e.jpg
 
-            #59d139ff6ac236375d372d7b/59d139ff6ac236375d372d7b couldn't download because it's a gif video thing
-        
         return url
 
     def download_final_img(self, url, filename):
@@ -182,7 +165,7 @@ class vscoDownloader(object):
 
 
 
-top_level = 'https://vsco.co/ayeemandy/images/{}'
+top_level = 'https://vsco.co/{}/images/{}'
 
 if __name__ == '__main__':
     dwnld = vscoDownloader(top_level)
